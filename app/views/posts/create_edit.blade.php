@@ -2,16 +2,16 @@
 
 @section('title')
     @if (isset($post))
-        {{ lang('Edit Post') }} - @parent
+        {{ lang('Editar Post') }} - @parent
     @else
-        {{ lang('Create Post') }} - @parent
+        {{ lang('Crear Post') }} - @parent
     @endif
 @stop
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{ cdn('/assets/editor/simditor.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ cdn('/assets/editor/jquery.tagsinput.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ cdn('/assets/editor/simditor-emoji.css') }}" />
+    {{ HTML::style('assets/editor/simditor.css'); }}
+    {{ HTML::style('assets/editor/jquery.tagsinput.min.css'); }}
+    {{ HTML::style('assets/editor/simditor-emoji.css'); }}
 @stop
 
 @section('content')
@@ -23,7 +23,7 @@
     @endif
 
     <div class="form-group">
-      {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => lang('Title goes here')]) }}
+      {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => lang('El título aquí')]) }}
     </div>
 
     <div class="form-group">
@@ -31,7 +31,7 @@
     </div>
 
     <div class="form-group">
-      {{ Form::text('tags', isset($post) ? $post->tagList : null, ['class' => 'form-control', 'style' => "width: 100%; height: 45px;"]) }}
+      {{ Form::text('tags', isset($post) ? $post->tagList : null, ['class' => 'form-control', 'style' => "width: 100%; height: 175px;"]) }}
     </div>
 
     <div class="form-group">
@@ -40,14 +40,14 @@
                                         'style' => "overflow:hidden",
                                         'id' => 'editor',
                                         'autofocus' => 'autofocus',
-                                        'placeholder' => lang('Please Enter some text...')]) }}
+                                        'placeholder' => lang('Empieza el post aquí...')]) }}
     </div>
 
     <div class="form-group status-post-submit">
-        {{ Form::submit(lang('Publish'), ['class' => 'btn btn-primary', 'id' => 'topic-create-submit']) }}
+        {{ Form::submit(lang('Publicar'), ['class' => 'btn btn-primary', 'id' => 'topic-create-submit']) }}
 
         @if (isset($post))
-            <a class="btn btn-default" href="{{ route('posts.show', $post->id) }}" target="_blank">{{ lang('view original article') }}</a>
+            <a class="btn btn-default" href="{{ route('posts.show', $post->id) }}" target="_blank">{{ lang('Ver artículo original') }}</a>
         @endif
     </div>
 
@@ -56,13 +56,13 @@
 @stop
 
 @section('scripts')
-    <script type="text/javascript" src="{{ cdn('/assets/editor/simditor-all.js') }}"></script>
-    <script type="text/javascript" src="{{ cdn('/assets/editor/marked.js') }}"></script>
-    <script type="text/javascript" src="{{ cdn('/assets/editor/simditor-marked.js') }}"></script>
-    <script type="text/javascript" src="{{ cdn('/assets/editor/jquery.tagsinput.min.js') }}"></script>
-    <script type="text/javascript" src="{{ cdn('/assets/editor/simditor-emoji.js') }}"></script>
+    {{ HTML::script('assets/editor/simditor-all.js'); }}
+    {{ HTML::script('assets/editor/marked.js'); }}
+    {{ HTML::script('assets/editor/simditor-marked.js'); }}
+    {{ HTML::script('assets/editor/jquery.tagsinput.min.js'); }}
+    {{ HTML::script('assets/editor/simditor-emoji.js'); }}
 
-    <script>
+<script>
 
     $(document).ready(function(){
         var editor = new Simditor({
@@ -72,18 +72,20 @@
                 params: null,
                 fileKey: 'upload_file',
                 connectionCount: 3,
-                leaveConfirm: 'File uploading, will be cancel if you leave the page.'
+                leaveConfirm: 'Subiendo archivo, se cancelará si dejas la página.'
             },
             pasteImage: true,
-            defaultImage: "{{ cdn('/assets/editor/no-preview.jpg') }}",
+            defaultImage: "{{ URL::to('assets/editor/no-preview.jpg'); }}",
+            //defaultImage: '{{ cdn("/assets/editor/no-preview.jpg") }}'
             toolbar: ['bold', 'italic', 'underline', 'strikethrough', 'ol', 'ul', 'blockquote', 'code', 'link', 'image', 'indent', 'outdent', 'marked', 'emoji'],
             emoji: {
-                imagePath: '{{ cdn('/assets/editor/images/emoji/') }}'
+                //imagePath: '{{ cdn("/assets/editor/images/emoji/") }}'
+                imagePath: '{{ URL::to("assets/editor/images/emoji/"); }}'
             }
         });
 
         $('input[name="tags"]').tagsInput({
-            maxTags: 5,
+            maxTags: 8,
             trimValue: true,
             allowDuplicates: false
         });

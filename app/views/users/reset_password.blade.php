@@ -11,12 +11,12 @@
         <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
 
         <div class="form-group">
-            <label for="password">{{{ lang('Password') }}}</label>
-            <input class="form-control" placeholder="{{{ lang('Password') }}}" type="password" name="password" id="password">
+            <label for="password">{{{ lang('Contraseña') }}}</label>
+            <input class="form-control" placeholder="{{{ lang('Contraseña') }}}" type="password" name="password" id="password">
         </div>
         <div class="form-group">
-            <label for="password_confirmation">{{{ lang('Password Confirmation') }}}</label>
-            <input class="form-control" placeholder="{{{ lang('Password Confirmation') }}}" type="password" name="password_confirmation" id="password_confirmation">
+            <label for="password_confirmation">{{{ lang('Confirmar contraseña') }}}</label>
+            <input class="form-control" placeholder="{{{ lang('Confirmar contraseña') }}}" type="password" name="password_confirmation" id="password_confirmation">
         </div>
 
         @if (Session::get('error'))
@@ -28,7 +28,7 @@
         @endif
 
         <div class="form-actions form-group">
-            <button type="submit" class="btn btn-primary">{{{ lang('Submit') }}}</button>
+            <button type="submit" class="btn btn-primary">{{{ lang('Terminar') }}}</button>
         </div>
     </form>
 </div>

@@ -24,6 +24,6 @@ class User extends Eloquent implements ConfideUserInterface
 
     public function getDisplayNameAttribute($value)
     {
-        return $value ?: $this->username;
+        return $value ?: $this->real_name;
     }
 }

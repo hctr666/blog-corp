@@ -2,13 +2,13 @@
 
 @section('title')
     @if (isset($category))
-        {{ lang('Category:') }} {{ $category->name }} - @parent
+        {{ lang('Categoría:') }} {{ $category->name }} - @parent
     @elseif (isset($tag))
-        {{ lang('Tag:') }} {{ $tag->name }} - @parent
+        {{ lang('Etiqueta:') }} {{ $tag->name }} - @parent
     @elseif (isset($user))
-        {{ lang('Author:') }} {{ $user->display_name }} - @parent
+        {{ lang('Autor:') }} {{ $user->display_name }} - @parent
     @else
-        {{ lang('All Posts') }} - @parent
+        {{ lang('Todos los posts') }} - @parent
     @endif
 @stop
 
@@ -16,19 +16,19 @@
 
     @if (isset($category))
         <h3 class="filter-header">
-            <i class="fa fa-book"></i> {{ lang('Category:') }} <span class="label label-default">{{ $category->name }}</span>
+            <i class="fa fa-book"></i> {{ lang('Categoría:') }} <span class="label label-default">{{ $category->name }}</span>
         </h3>
     @endif
 
     @if (isset($tag))
         <h3 class="filter-header">
-        <i class="fa fa-tags"></i> {{ lang('Tag:') }} <span class="label label-default">{{{ $tag->name }}}</span>
+        <i class="fa fa-tags"></i> {{ lang('Etiqueta:') }} <span class="label label-default">{{{ $tag->name }}}</span>
         </h3>
     @endif
 
     @if (isset($user))
         <h3 class="filter-header">
-        <i class="fa fa-user"></i> {{ lang('Author:') }} <span class="label label-default">{{{ $user->display_name }}}</span>
+        <i class="fa fa-user"></i> {{ lang('Autor:') }} <span class="label label-default">{{{ $user->display_name }}}</span>
         </h3>
     @endif
 
@@ -50,7 +50,7 @@
             </div>
         </a>
     @empty
-        {{ lang('There are nothing here!') }}
+        {{ lang('¡No hay nada aquí!') }}
     @endforelse
 
     </div>

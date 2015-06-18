@@ -17,13 +17,13 @@
 <h1>{{{ $post->title }}}</h1>
 
 <p class="article-meta">
-    <i class="fa fa-user"></i> {{ lang('by') }} <a href="{{ route('users.show', $post->user->id) }}">{{{ $post->user->display_name }}}</a>
+    <i class="fa fa-user"></i> {{ lang('por') }} <a href="{{ route('users.show', $post->user->id) }}">{{{ $post->user->display_name }}}</a>
 
     @if ( $currentUser && ($currentUser->can("manage_contents") || $currentUser->id == $post->user_id) )
         <span style="padding:0 6px">•</span>
-        <i class="fa fa-pencil-square-o"></i> <a href="{{ route('posts.edit', $post->id) }}">{{ lang('edit') }}</a>
+        <i class="fa fa-pencil-square-o"></i> <a href="{{ route('posts.edit', $post->id) }}">{{ lang('editar') }}</a>
         <span style="padding:0 6px">•</span>
-        <i class="fa fa-trash"></i> <a href="{{ route('posts.destroy', $post->id) }}" data-method="delete">{{ lang('delete') }}</a>
+        <i class="fa fa-trash"></i> <a href="{{ route('posts.destroy', $post->id) }}" data-method="delete">{{ lang('Eliminar') }}</a>
     @endif
 </p>
 
@@ -46,7 +46,7 @@
 
 <h4 style="margin-top:50px; margin-bottom:10px;">
     <hr>
-    {{ lang('Comments') }} ( {{ $comments->getTotal() }} ):
+    {{ lang('Comentarios') }} ( {{ $comments->getTotal() }} ):
 </h4>
 
 <div class="article-comment list-group">
@@ -68,7 +68,7 @@
         </div>
     @empty
         <div class="list-group-item" style="border:none;">
-            {{ lang('There are nothing here!') }}
+            {{ lang('No se encontraron posts!') }}
         </div>
     @endforelse
 
@@ -89,16 +89,16 @@
             @if ($currentUser)
               {{ Form::textarea('body', null, ['class' => 'form-control',
                                                 'rows' => 5,
-                                                'placeholder' => lang('Leave a comment?'),
+                                                'placeholder' => lang('¿Dejas un comentario?'),
                                                 'style' => "overflow:hidden",
                                                 'id' => 'reply_content']) }}
             @else
-              {{ Form::textarea('body', null, ['class' => 'form-control', 'disabled' => 'disabled', 'rows' => 5, 'placeholder' => lang('User Login Required for commenting.')]) }}
+              {{ Form::textarea('body', null, ['class' => 'form-control', 'disabled' => 'disabled', 'rows' => 5, 'placeholder' => lang('Inicia sesión para comentar.')]) }}
             @endif
         </div>
 
         <div class="form-group status-post-submit">
-            {{ Form::submit(lang('Comment'), ['class' => 'btn btn-primary' . ($currentUser ? '' : ' disabled'), 'id' => 'reply-create-submit']) }}
+            {{ Form::submit(lang('Comentar'), ['class' => 'btn btn-primary' . ($currentUser ? '' : ' disabled'), 'id' => 'reply-create-submit']) }}
         </div>
 
     {{ Form::close() }}

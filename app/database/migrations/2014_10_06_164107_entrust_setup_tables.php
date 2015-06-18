@@ -76,7 +76,11 @@ class EntrustSetupTables extends Migration
     {
         // Create Roles
         $founder = new Role;
-        $founder->name = 'Founder';
+        $founder->name = 'Super';
+        $founder->save();
+
+        $founder = new Role;
+        $founder->name = 'Standard';
         $founder->save();
 
         $admin = new Role;
@@ -85,18 +89,18 @@ class EntrustSetupTables extends Migration
 
         // Create User
         $user = new User;
-        $user->username = 'admin';
-        $user->display_name = 'Admin';
-        $user->email = 'admin@local.com';
-        $user->password = 'admin';
-        $user->password_confirmation = 'admin';
+        $user->username = 'hectorn ';
+        $user->display_name = 'Standard';
+        $user->email = 'hctr.441@gmail.com';
+        $user->password = 'FUCKn0k14c300';
+        $user->password_confirmation = 'FUCKn0k14c300';
         $user->confirmation_code = md5(uniqid(mt_rand(), true));
         $user->confirmed = true;
 
         if(! $user->save()) {
-            Log::info('Unable to create user '.$user->username, (array)$user->errors());
+            Log::info('Unable to create user '.$user->email, (array)$user->errors());
         } else {
-            Log::info('Created user "'.$user->username.'" <'.$user->email.'>');
+            Log::info('Created user "'.$user->real_name.'" <'.$user->email.'>');
         }
 
         // Attach Roles to user

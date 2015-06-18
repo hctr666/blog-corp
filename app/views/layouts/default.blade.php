@@ -3,16 +3,16 @@
 
   <head>
     <meta charset="utf-8">
-    <title>@section('title')Laravel Blog @show</title>
-    <meta name="keywords" content="@section('keywords') Laravel,Blog @show" />
-    <meta name="description" content="@section('description') Laravel-Blog is a blog application written in Laravel 4.2. @show">
+    <title>@section('title')Blog ISM @show</title>
+    <meta name="keywords" content="@section('keywords') ISM Blog" />
+    <meta name="description" content="@section('description') El Blog de ISM @show">
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.ico">
 
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css">
-    <link rel="stylesheet" href="{{ cdn("/assets/styles/bootstrap.css") }}">
-    <link rel="stylesheet" href="{{ cdn("/assets/styles/main.css") }}">
+    {{ HTML::style('assets/styles/bootstrap.css'); }}
+    {{ HTML::style('assets/styles/main.css'); }}
 
     <script>
         Config = {
@@ -46,34 +46,33 @@
 
         <div class="footer">
             <p>
-                <span class="glyphicon glyphicon-heart"></span> from The EST Group
+                Potenciado por Sistemas - ISM
                 <span class="pull-right">
-                    <i class="fa fa-github" style="font-size:15px"></i> <a href="https://github.com/summerblue/laravel-blog" target="_blank">Project at Github</a>.
+                    <a href="/">Blog ISM</a>.
                 </span>
             </p>
         </div>
-
     </div>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.js"></script>
 
-    <script src="{{ cdn("/assets/scripts/jquery.pjax.js") }}"></script>
-    <script src="{{ cdn("/assets/scripts/jquery.scrollUp.js") }}"></script>
-    <script src="{{ cdn("/assets/scripts/nprogress.js") }}"></script>
-    <script src="{{ cdn("/assets/scripts/main.js") }}"></script>
+    {{ HTML::script('assets/scripts/jquery.pjax.js'); }}
+    {{ HTML::script('assets/scripts/jquery.scrollUp.js'); }}
+    {{ HTML::script('assets/scripts/nprogress.js'); }}
+    {{ HTML::script('assets/scripts/main.js'); }}
 
     @yield('scripts')
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      /*(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
       e=o.createElement(i);r=o.getElementsByTagName(i)[0];
       e.src='//www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
+      ga('create','UA-XXXXX-X');ga('send','pageview');*/
     </script>
 
 </body>
